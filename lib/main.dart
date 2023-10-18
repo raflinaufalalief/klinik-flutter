@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:klinik_app/ui/pegawai/pegawai_page.dart';
+import 'package:klinik_app/ui/login/beranda.dart';
+// import 'package:klinik_app/ui/pegawai/pegawai_page.dart';
+// import 'package:klinik_app/ui/poli/poli_page.dart';
 // import 'package:klinik_app/ui/poli/poli_page.dart';
 // import 'package:klinik_app/baris_kolom.dart';
 // import '/ui/poli_page.dart';
@@ -20,7 +22,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       title: 'Klinik APP',
       debugShowCheckedModeBanner: false,
-      home: PegawaiPage(),
+      home: Beranda(),
     );
   }
 }

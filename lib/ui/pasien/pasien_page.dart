@@ -1,40 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:klinik_app/model/pegawai.dart';
+import 'package:klinik_app/ui/pasien/pasien_form.dart';
 // import 'package:klinik_app/ui/pasien/pasien_detail.dart';
 import 'package:klinik_app/ui/pasien/pasien_item.dart';
-import 'package:klinik_app/ui/pegawai/pegawai_form.dart';
 import 'package:klinik_app/ui/pegawai/pegawai_item.dart';
-import 'package:klinik_app/widget/sidebar.dart';
-// import 'pegawai_detail.dart';
-import '../../model/pegawai.dart';
 import '../../model/pasien.dart';
 
-class PegawaiPage extends StatefulWidget {
-  const PegawaiPage({super.key});
+class PasienPage extends StatefulWidget {
+  const PasienPage({super.key});
 
   @override
-  State<PegawaiPage> createState() => _PegawaiPageState();
+  State<PasienPage> createState() => _PasienPageState();
 }
 
-class _PegawaiPageState extends State<PegawaiPage> {
+class _PasienPageState extends State<PasienPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const Sidebar(),
       appBar: AppBar(
-        title: const Text("Data Klinik"),
+        title: const Text("Data RS"),
         actions: [
           GestureDetector(
             child: const Icon(Icons.add),
             onTap: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const PegawaiForm()));
+                  MaterialPageRoute(builder: (context) => const PasienForm()));
             },
           )
         ],
       ),
       body: ListView(
         children: [
-          PegawaiItem(pegawai: Pegawai(namaPegawai: "Nama Pegawai")),
+          PegawaiItem(pegawai: Pegawai(namaPegawai: "Pegawai")),
           PasienItem(pasien: Pasien(namaPasien: "Nama Pasien")),
         ],
       ),

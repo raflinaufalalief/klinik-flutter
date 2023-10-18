@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:klinik_app/model/poli.dart';
+import 'package:klinik_app/ui/poli/poli_page.dart';
 import 'poli_update_form.dart';
 
 class PoliDetail extends StatefulWidget {
@@ -48,7 +49,34 @@ class _PoliDetailState extends State<PoliDetail> {
 
   _tombolHapus() {
     return ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          AlertDialog alertDialog = AlertDialog(
+            content: const Text("Yakin ingin menghapus data ini?"),
+            actions: [
+              // tombol ya
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const PoliPage()));
+                },
+                style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
+                child: const Text("YA"),
+              ),
+              // tombol batal
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
+                child: const Text("Tidak"),
+              )
+            ],
+          );
+          showDialog(context: context, builder: (context) => alertDialog);
+        },
         style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
         child: const Text("Hapus"));
   }
